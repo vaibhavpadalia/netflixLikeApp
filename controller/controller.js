@@ -10,8 +10,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'Your Email@gmail.com',
-        pass: 'your pass'
+        user: 'vaibhavpadalia1996@gmail.com',
+        pass: 'P@$sw0rdanon'
     }
 });
 
@@ -34,7 +34,7 @@ exports.createUser = (req, res) => {
             });
         }
         else {
-            transporter.sendMail({from:'Your email@gmail.com',
+            transporter.sendMail({from:'vaibhavpadalia1996@gmail.com',
                 to: req.body.email,
                 subject: 'Your Password',
                 text: 'Thankyou for signing up with us. Your password is: ' + req.body.password}, 
