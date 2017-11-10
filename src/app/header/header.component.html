@@ -1,0 +1,34 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Raleway');
+</style>
+<header>
+  <h1>NetFlix</h1>
+</header>
+<ul>
+  <li>
+      <a [routerLink]="['/welcome']"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Welcome</a>
+  </li>
+  <ng-template [ngIf]="!service.isLoggedIn()">
+    <li>
+      <a [routerLink]="['/login']">
+        <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a>
+    </li>
+    </ng-template>
+    <ng-template [ngIf]="service.isLoggedIn()">
+  <li>
+    <a [routerLink]="['/dashboard']">
+      <span class="glyphicon glyphicon-dashboard"></span>&nbsp;&nbsp;Dashboard
+    </a>
+  </li>
+    <!-- <li>
+      <a [routerLink]="['/changePassword']">
+        <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Change Password
+      </a>
+    </li> -->
+    <li>
+       <a (click)="logout()">
+         <span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Log Out
+        </a>
+    </li>
+    </ng-template>
+</ul>

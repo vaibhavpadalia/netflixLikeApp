@@ -1,0 +1,113 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Aldrich');
+</style>
+
+<body>
+  <div class="panel-heading">
+    <div class="panel-title text-center">
+      <h1 class="title">SignUp Form</h1>
+      <hr />
+    </div>
+  </div>
+  <div class="main-login main-center">
+    <form class="form-horizontal" [formGroup]="form" ngNativeValidate (ngSubmit)="onSignup(email.value,name.value,password.value,confirm.value)">
+
+      <div class="form-group">
+        <label for="name" class="cols-sm-2 control-label">Your Name</label>
+        <br>
+        <br>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class=" glyphicon glyphicon-user"></i>
+            </span>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter your Name" #name/>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+        Name is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('name').hasError('minlength') && form.get('name').touched">
+        Name must be at least 5 characters long.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('name').hasError('maxlength') && form.get('name').touched">
+        Name must be less than 25 characters.
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="cols-sm-2 control-label">Your Email</label>
+        <br>
+        <br>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-envelope"></i>
+            </span>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your Email" #email />
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+        Email is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('email').hasError('email') && form.get('email').touched">
+        Enter a valid Email.
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="cols-sm-2 control-label">Password</label>
+        <br>
+        <br>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-asterisk"></i>
+            </span>
+            <input type="password" formControlName="password" class="form-control" #password placeholder="Enter your Password" />
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('password').hasError('required') && form.get('password').touched">
+        This field is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('password').hasError('minlength') && form.get('password').touched">
+        Enter a password longer than 8 characters.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('password').hasError('maxlength') && form.get('password').touched">
+        Enter a password less than 25 characters.
+      </div>
+
+      <div class="form-group">
+        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+        <br>
+        <br>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-asterisk"></i>
+            </span>
+            <input type="password" class="form-control" formControlName="confirm" placeholder="Confirm your Password" #confirm />
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('confirm').hasError('required') && form.get('confirm').touched">
+        This field is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('confirm').hasError('minlength') && form.get('confirm').touched">
+        Enter a password longer than 8 characters.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.get('confirm').hasError('maxlength') && form.get('confirm').touched">
+        Enter a password less than 25 characters.
+      </div>
+
+      <br>
+      <div class="form-group ">
+        <button type="submit" class="btn btn-primary btn-lg btn-block login-button" [disabled]="!form.valid">Register</button>
+      </div>
+
+    </form>
+  </div>
+  <br>
+  <br>
+</body>
