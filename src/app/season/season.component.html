@@ -1,0 +1,22 @@
+<body>
+<br>
+<h1 style="padding-left:50px;background:black; color:white;">{{seasonName}}</h1>
+<div class="row">
+  <div class="example-2 card" *ngFor="let s of seasonInfo">
+    <div class="wrapper" >
+    <img src="{{s.imgSrc}}" width="100%">
+      <div class="data">
+        <div class="content">
+          <span class="author" style="background: black;">Year: {{s.releaseDate}}</span>
+          <h1 class="title" style="background: black;">
+            <a (click)="sendData(s.name,s.seasonNumber)">Season: {{s.seasonNumber}}</a>
+          </h1>
+          <a (click)="sendData(s.name,s.seasonNumber)" style="background: black;" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+</body>

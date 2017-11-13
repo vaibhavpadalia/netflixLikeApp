@@ -7,9 +7,26 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserService } from './user.service';
-import { MovieComponent } from './movie/movie.component';
-import { SeriesComponent } from './series/series.component';
 import { AuthGuard } from './auth.guard';
+import { AdminComponent } from './admin/admin.component';
+import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { AuthServiceConfig } from 'angular4-social-login';
+
+
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('999152044436-ru46es165cg49nj3b5q1c35km6mu101o.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('190259691532770')
+  }
+]);
+export function provideConfig() {
+  return config;
+}
 
 
 @NgModule({
@@ -18,17 +35,20 @@ import { AuthGuard } from './auth.guard';
     HeaderComponent,
     FooterComponent,
     routingComponents,
-    MovieComponent,
-    SeriesComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SocialLoginModule
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, AuthGuard, [{
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

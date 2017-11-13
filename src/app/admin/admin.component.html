@@ -1,0 +1,162 @@
+<body>
+  <br>
+    <form class="form1" ngNativeValidate (ngSubmit)="insertMovie(mid.value,mname.value,mimg.value,mdesc.value,mgenre.value,myor.value)">
+    <input id="input-1" type="text" placeholder="Enter Name of the movie" #mname required />
+    <label for="input-1">
+      <span class="label-text">Movie Name</span>
+      <span class="nav-dot"></span>
+      <div class="signup-button-trigger">Insert Movies</div>
+    </label>
+    <input id="input-2" type="text" placeholder="Enter unique movie id" #mid required />
+    <label for="input-2">
+      <span class="label-text">Movie ID</span>
+      <span class="nav-dot"></span>
+    </label>
+    <input id="input-4" type="text" placeholder="Enter genre" #mgenre required>
+    <label for="input-4">
+      <span class="label-text">Enter Genre</span>
+      <span class="nav-dot"></span>
+    </label>
+    <input id="input-4" type="text" placeholder="Enter year of release" #myor required>
+    <label for="input-4">
+      <span class="label-text">Year of Release</span>
+      <span class="nav-dot"></span>
+    </label>
+    <input id="input-3" type="text" placeholder="Enter Image Source" #mimg required />
+    <label for="input-3">
+      <span class="label-text">Image Source</span>
+      <span class="nav-dot"></span>
+    </label>
+    <input id="input-4" type="text" placeholder="Enter movie description" #mdesc required>
+    <label for="input-4">
+      <span class="label-text">Enter Description</span>
+      <span class="nav-dot"></span>
+    </label>
+    <button type="submit">Submit</button>
+    <p class="tip">Press Tab</p>
+    <div class="signup-button">Insert Movies</div>
+  </form>
+  <br><br>
+
+  <div class="container">
+    <h1>Insert Series</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="insertSeries(serid.value, sername.value, sergenre.value, serimg.value, seryor.value, serdesc.value)">
+    <input type="text" #serid placeholder="Enter unique Series ID" required>
+    <br>
+    <input type="text" #sername placeholder="Enter Series Name" required >
+    <br>
+    <input type="text" placeholder="Enter Series genre" required #sergenre>
+    <br>
+    <input type="text" placeholder="Enter image source" #serimg required>
+    <br>
+    <input type="text" placeholder="Enter year of release" required #seryor>
+    <br>
+    <textarea type="text" placeholder="Description" #serdesc required></textarea>
+    <div align="center">
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Insert Season</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="insertSeasons(name.value, sno.value, img.value, yor.value)"> 
+    <input type="text" #name placeholder="Enter Series Name" required>
+    <br>
+    <input type="number" placeholder="Enter Season number" required #sno>
+    <br>
+    <input type="text" placeholder="Enter image source" #img required>
+    <br>
+    <input type="text" placeholder="Enter year of release" required #yor>
+    <br>
+    <div align="center">
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Insert Episodes</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="insertEpisodes(seaname.value, seano.value, seaimg.value, ename.value)">
+    <input type="text" #seaname placeholder="Enter Series Name" required>
+    <br>
+    <input type="number" placeholder="Enter Season number" required #seano>
+    <br>
+    <input type="text" placeholder="Enter image source" #seaimg required>
+    <br>
+    <input type="text" placeholder="Enter Episode name" required #ename>
+    <br>
+    <div align="center">
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Delete Movies</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="deleteMovie(sname.value)">
+    <input type="text" placeholder="Enter Movie Name to be deleted" #sname required>
+    <br>
+    <div align="center">
+      <input type="submit" value="Delete">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Delete Series</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="deleteSeries(seriesname.value)">
+    <input type="text" #seriesname placeholder="Enter Series Name to be deleted" required>
+    <br>
+    <div align="center">
+      <input type="submit" value="Delete">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Edit Movies</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="updateMovie(movname.value, movgenre.value, movsrc.value, movyor.value, movdes.value)">
+    <input type="text" id="movname" #movname placeholder="Enter Movie Name" required>
+    <br>
+    <input type="text" id="movsrc" placeholder="Enter Image src" #movsrc>
+    <br>
+    <input type="text" id="movyor" placeholder="Enter release date" #movyor>
+    <br>
+    <input type="text" id="movdes" placeholder="Enter description" #movdes>
+    <br>
+    <input type="text" id="movgenre" placeholder="Enter genre" #movgenre>
+    <br>
+    <div align="center">
+      <input type="submit" value="Edit">
+      <input type="button" value="Get" (click)="getMovie(movname.value)">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Edit Series</h1>
+  <form class="form2" ngNativeValidate (ngSubmit)="updateSeries(seriesName.value, seriesGenre.value, seriesSrc.value, seriesyor.value, seriesdes.value)">
+    <input type="text" id="seriesName" #seriesName placeholder="Enter Series Name" required>
+    <br>
+    <input type="text" id="seriesSrc" placeholder="Enter Image src" #seriesSrc>
+    <br>
+    <input type="text" id="seriesyor" placeholder="Enter release date" #seriesyor>
+    <br>
+    <input type="text" id="seriesdes" placeholder="Enter description" #seriesdes>
+    <br>
+    <input type="text" id="seriesGenre" placeholder="Enter genre" #seriesGenre>
+    <br>
+    <div align="center">
+      <input type="submit" value="Edit">
+      <input type="button" value="Get" (click)="getSeries(seriesName.value)">
+    </div>
+  </form>
+</div>
+  <br>
+</body>

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  role: number;
   constructor() { }
 
   ngOnInit() {
+     this.role = parseInt(localStorage.getItem('role'), 10);
+    console.log(typeof this.role);
   }
 
 }

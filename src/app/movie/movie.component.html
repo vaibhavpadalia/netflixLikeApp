@@ -1,3 +1,31 @@
-<p>
-  movie works!
-</p>
+<link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+<body>
+  <br>
+  <ng-container *ngFor="let g of genre">
+  <h1 style="padding-left:50px;font-family: 'Playfair Display SC', serif; 
+  text-shadow: 1px 1px #000000; color:rgb(255, 255, 255);">
+    {{g}}
+  </h1>
+  <ng-container *ngFor="let m of movies">
+  <div class="wrapper" *ngIf="g === m.genre">
+    <div class="product-img">
+      <img src="{{m.imgSrc}}" height="420" width="327">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1>{{m.name}}</h1><br>
+        <h2>Release Year: {{m.releaseDate}}</h2>
+        <h3>Genre: {{m.genre}}</h3>
+        <p>{{m.description}}</p>
+      </div><br>
+      <div class="product-price-btn">
+        <button type="button">Watch Now</button>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  </ng-container>
+<br>
+</body>

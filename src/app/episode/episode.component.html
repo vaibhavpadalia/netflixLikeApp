@@ -1,0 +1,41 @@
+<body>
+  <br>
+  <div class="row">
+
+  <div class="example-1 card" *ngFor="let s of seasonInfo">
+    <div class="wrapper">
+      <img src="{{s.imgSrc}}" width="100%">
+      <div class="data">
+        <div class="content">
+            <span class="author">Season 1</span>
+            <h1 class="title">
+            <a>{{s.episodeName}}</a>
+          </h1>
+          <label for="show-menu" class="menu-button">
+            <span></span>
+          </label>
+        </div>
+        <input type="checkbox" id="show-menu" />
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li>
+            <a href="#" class="fa fa-heart-o">
+              <span>47</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="fa fa-comment-o">
+              <span>8</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<br><br>
+</body>
+

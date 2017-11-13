@@ -1,0 +1,192 @@
+// @import "compass";
+$accent-color: #e7e7e7;
+$brand-color:#fe4141;
+
+
+body {  
+  background:linear-gradient(
+       rgba(30,27,38, 0.90), 
+      rgba(30,27,38, 0.90)),
+    url("http://fg8.ca/wp-content/uploads/2015/09/metal-texture-wallpaper-wallpapertoon.jpg");
+  background-size: cover;
+}
+
+.container{
+  width:100%;
+  height:100%;
+}
+
+.cellphone-container{  
+  width:350px;
+  height:650px;
+  align-self: auto;
+  background-color:#1e1b26;
+  margin : 60px 50px 20px 10px;
+  float: left;
+  box-shadow:5px 5px 125px -14px black;
+}
+
+.movie-img {
+  width:350px;
+  height:400px;
+ /*background-size: contain;*/
+  background-size: cover;
+  z-index:111 !important;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+			color-stop(0.00,  rgba(0,0,0,1)),
+			color-stop(0.35,  rgba(0,0,0,1)),
+			color-stop(0.50,  rgba(0,0,0,1)),
+			color-stop(0.65,  rgba(0,0,0,1)),
+			color-stop(0.85,  rgba(0,0,0,0.6)),
+      color-stop(1.00,  rgba(0,0,0,0)));
+  position:relative;
+
+}
+
+.movie{
+  position:absolute;
+  background-size: contain;
+  //background-size: cover;
+  z-index:1 !important;
+  width:300px;
+  height:400px;
+  display:block;
+}
+
+.text-movie-cont{
+  padding:0px 12px;
+  text-align: justify;
+}
+
+.action-btn{
+  text-align:right;
+  i{
+  color:$brand-color;
+  font-size:28px;
+  text-align:right;
+  }  
+}
+
+.summary-row{margin-top:10px;}
+
+/* TYPOGRAPHY STARTS */
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic);
+
+$heading-font-family: 'Montserrat', sans-serif;
+$paragraph-font-family: 'Open Sans', sans-serif;
+
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+$mont-regular: 400;
+$mont-bold: 700;
+
+$text-movie-title:30px;
+$text-summary:12px;
+$text-action-btn:14px;
+$text-movie-description:12px;
+
+h1,h2,h3,h4,h5 {
+  font-family:$heading-font-family;
+  color:$accent-color;
+  margin:0px;
+}
+
+h1 {
+  font-size:$text-movie-title;
+  font-weight:$mont-regular;
+}
+
+h3 {
+  font-size:$text-action-btn;
+  font-weight:$mont-regular;
+  color:$brand-color;
+}
+
+h5 {
+  font-size:$text-summary;
+  font-weight:$mont-regular;
+}
+
+.movie-gen{
+  margin:0px;
+  padding:0px;
+    li{
+    font-family:$paragraph-font-family;
+    font-size:$text-summary;
+    color:darken( $accent-color, 40% );
+    width:auto;
+    display:block;
+    float:left;  
+    margin-right:6px;
+    font-weight:$semi-bold;
+  }
+}
+
+
+.movie-details {
+  font-family:$paragraph-font-family;
+  font-size:$text-summary;
+  font-weight:$light;
+  color:darken( $accent-color, 20% );
+  @extend .elements-distance;
+}
+
+.movie-description {
+  font-family:$paragraph-font-family;
+  font-size:$text-movie-description;
+  font-weight:$regular;
+  color:darken( $accent-color, 30% );  
+  @extend .elements-distance;
+}
+
+.movie-actors {
+  font-family:$paragraph-font-family;
+  font-size:$text-summary;
+  font-weight:$light;
+  color:$accent-color;
+  font-style: italic;
+  @extend .elements-distance;
+}
+
+/* TYPOGRAPHY ENDS */
+
+/** GRID STARTS **/
+
+.thegrid { margin: 0 auto; }
+
+.elements-distance{margin:0px}
+
+.mr-grid { width: 320px; }
+    .mr-grid:before, .mr-grid:after { content: ""; display: table; }
+    .mr-grid:after { clear: both; }
+    .mr-grid { *zoom: 1; }
+
+.col1, .col2, .col3, .col3rest, .col4, .col4rest, .col5, .col5rest, .col6, .col6rest{ 
+	margin:0% 0.5% 0.5% 0.5%;
+    padding:1%;
+    float: left;
+    display: block;
+}
+
+/* Columns match, minus margin sum. E.G. margin-left+margin-right=1%, col2=50%-1% - added padding:1%*/
+
+.col1 { width: 98%; }
+.col2 { width: 47%; }
+.col3 { width: 30.3333333333%; }
+.col4 { width: 22%; }
+.col5 { width: 17%; }
+.col6 {width:13.6666666667%;}
+
+	
+/* Columns match with their individual number. E.G. col3+col3rest=full width row */
+
+.col3rest { width: 63.6666666667%; }
+.col4rest { width: 72%; }
+.col5rest { width: 77%; }
+.col6rest { width: 80.3333333333%;}
+

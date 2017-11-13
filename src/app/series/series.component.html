@@ -1,3 +1,37 @@
-<p>
-  series works!
-</p>
+<link href="https://fonts.googleapis.com/css?family=Exo+2:600" rel="stylesheet">
+<body>
+<br>
+<div class="container" *ngFor="let g of genre">
+  <h1 style="padding-left:30px;padding-top:20px;font-family: 'Exo 2', sans-serif;font-size:50px;">{{g}}</h1>
+  <ng-container *ngFor="let s of series">
+  <div class="cellphone-container" *ngIf="g === s.genre">
+    <div class="movie">
+      <img class="movie-img" src="{{s.imgSrc}}">
+      <div class="text-movie-cont">
+        <div class="mr-grid">
+          <div class="col1">
+            <h1><a (click)="sendName(s.name)">{{s.name}}</a></h1><br>
+            <ul class="movie-gen">
+              <li>Release Year: {{s.releaseDate}}</li><br>
+              <li>Genre: {{s.genre}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mr-grid summary-row">
+          <div class="col2">
+            <h5>SUMMARY</h5>
+          </div>
+        </div>
+        <div class="mr-grid">
+          <div class="col1">
+            <p class="movie-description">{{s.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<br>
+</div>
+<br>
+</body>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'angular4-social-login';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private service: UserService) { }
+  constructor(private router: Router, private service: UserService, private authService: AuthService) { }
 
   ngOnInit() {
   }
   logout() {
     localStorage.removeItem('email');
+    localStorage.removeItem('role');
     this.router.navigate(['/welcome']);
+    if (this.service.socialLogin) {
+      this.service.socialLogin = false;
+      this.authService.signOut().then(res => console.log(res));
+    }
   }
 }

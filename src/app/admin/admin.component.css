@@ -1,0 +1,70 @@
+.container {
+    width:100%;
+    text-align:center;
+    margin: 40px 20px 30px 0;
+}
+h1
+    { 
+    color: white;
+    font-family: corbel;
+    background-color: #2F92A3;
+    padding: 10px;
+    font-size: 50px;
+    }
+
+input[type=text],input[type=number],input[type=password],input[type=date],textarea,select {
+        width: 30%;
+        padding: 6px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 110%;
+    }
+
+input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{
+    
+        -webkit-appearance: none;
+        margin: 0;
+    }
+input[type=text]:hover,textarea:hover,input[type=number]:hover {
+        box-shadow: 2px 1px 2px rgb(255, 255, 255);
+    }
+ .alert{
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 10px;
+        color: red;
+        padding: 0 ;
+        }
+        
+ input[type=button],input[type=submit],input[type=reset] {
+        width: 150px;
+        background-color: #ff8000;
+        color: white;
+        padding: 14px 20px;
+        margin:20px 20px;
+        border: none;
+        border-radius: 32px;
+        cursor: pointer;
+    }
+input[type=button]:hover,input[type=reset]:hover {
+        background-color: #F07603;
+        box-shadow: 2px 1px 2px #808080;
+    }
+
+    #body {
+        border-radius: 5px;
+        background-color: #ADE2A6;
+        padding: 20px;
+        width: 450px;
+        margin: 0 auto;
+        font-family: Century Gothic;
+        font-size: 90%;
+        box-shadow: 5px 4px 16px grey;
+    }
+  th, td {
+        text-align: left;
+        width: 200px;
+    }

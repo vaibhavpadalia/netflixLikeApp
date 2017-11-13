@@ -46,3 +46,17 @@
     line-height: 1.4;
   }
 }
+
+body {
+    background-image: url(https://crehana.blob.core.windows.net/media/projects/url/2017/02/02/a16debfb3cd74c70b1fe9e2ba7b13178.png);
+    width: auto;
+    background-size: 100% 100%;
+    height: 100%;
+    padding-right: 0px;
+    opacity: 0.9;
+}
+
+.changeFont {
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+}
