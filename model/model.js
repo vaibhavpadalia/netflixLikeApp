@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
     email: { type: String, unique: true, required: true },
-    name: { type: String },
+    name: { type: String, trim: true},
     password: { type: String },
     role: { type: Number },
     created_at: { type: Date, default: Date.now() },
@@ -12,9 +12,9 @@ var UserSchema = new Schema({
 });
 
 var MovieSchema = new Schema({
-    mid: { type: String, unique: true, required: true },
+    mid: { type: String, unique: true, required: true, trim: true },
     imgSrc: {type: String},
-    name: { type: String },
+    name: { type: String, trim: true},
     releaseDate: { type: String },
     description: { type: String },
     genre: {type: String },
@@ -24,7 +24,7 @@ var MovieSchema = new Schema({
 
 var SeriesSchema = new Schema({
     sid: { type: String, unique: true, required: true },
-    name: { type: String , unique: true},
+    name: { type: String, unique: true, trim: true},
     imgSrc: { type: String },
     releaseDate: { type: String },
     description: { type: String },
@@ -34,7 +34,7 @@ var SeriesSchema = new Schema({
 });
 
 var SeasonSchema = new Schema({
-    name: { type: String },
+    name: { type: String, trim: true},
     releaseDate: { type: String },
     description: { type: String },
     episodeList: { type: Number },
@@ -46,7 +46,7 @@ var SeasonSchema = new Schema({
 });
 
 var EpisodeSchema = new Schema({
-    name: { type: String },
+    name: { type: String, trim: true },
     seasonNumber: { type: Number },
     episodeName: { type: String },
     imgSrc:{ type: String },

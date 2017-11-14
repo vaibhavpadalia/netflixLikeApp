@@ -11,6 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 import { AuthServiceConfig } from 'angular4-social-login';
+import { AdminGuard } from './admin.guard';
 
 
 
@@ -45,7 +46,7 @@ export function provideConfig() {
     HttpModule,
     SocialLoginModule
   ],
-  providers: [UserService, AuthGuard, [{
+  providers: [UserService, AuthGuard, AdminGuard, [{
     provide: AuthServiceConfig,
     useFactory: provideConfig
   }]],

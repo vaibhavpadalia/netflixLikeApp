@@ -10,6 +10,7 @@ import { SeriesComponent } from './series/series.component';
 import { SeasonComponent } from './season/season.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
     { path: 'dashboard' , component: DashboardComponent, canActivate: [AuthGuard]},
     { path: 'season/:value', component: SeasonComponent, canActivate: [AuthGuard]},
     { path: 'episode/:name/:number', component: EpisodeComponent, canActivate: [AuthGuard]},
-    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: '**', component: WelcomeComponent }
 ];
 

@@ -48,7 +48,7 @@ exports.createUser = (req, res) => {
             });
             res.json({
                 success: true,
-                body: response
+                // body: response
             });
         }
     });
@@ -75,7 +75,7 @@ exports.insertMovie = (req,res) => {
         }
         return res.json({
             success: true,
-            body: response
+            // body: response
         });
     });
 }   
@@ -102,7 +102,7 @@ exports.insertSeries = (req, res) => {
         }
         return res.json({
             success: true,
-            body: response
+            // body: response
         });
     });
 }
@@ -130,7 +130,7 @@ exports.insertSeason = (req, res) => {
         }
         return res.json({
             success: true,
-            body: response
+            // body: response
         });
     });
 }
@@ -241,7 +241,10 @@ exports.getUser = (req, res) => {
     User.findOne({ email: email }, (error, response) => {
         if(response !== null) {
         if (bcrypt.compareSync(req.params.password, response.password)) {
-            return res.json(response);
+            return res.json({
+                email: response.email,
+                role: response.role
+            });
         }
     }
         return res.json(error);
@@ -292,7 +295,9 @@ exports.updateMovie = (req, res) => {
             if (err) {
                 res.send(err);
             }
-            res.json(response);
+            res.json({
+                success: true
+            });
         });
 
     });

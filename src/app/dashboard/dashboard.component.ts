@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
      this.role = parseInt(localStorage.getItem('role'), 10);
-    console.log(typeof this.role);
   }
 
 }
