@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         if (this.user !== null) {
           this.service.onSignup(this.user.email, this.user.name, Math.random().toString(36).substring(3))
             .subscribe(response => console.log(response)); // For Testing purpose only
+          this.service.socialLogin = true;
           this.router.navigate(['/dashboard']);
           localStorage.setItem('email', this.user.email);
-          this.service.socialLogin = true;
         }
       });
     });
@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.user = JSON.parse(res.text());
         console.log(this.user); // For testing purpose only
-        if (this.user !== null) {
+        if (this.user.success) {
+          console.log('inside true');
           this.router.navigate(['/dashboard']);
           localStorage.setItem('email', email);
           localStorage.setItem('role', this.user.role);

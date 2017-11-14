@@ -241,13 +241,25 @@ exports.getUser = (req, res) => {
     User.findOne({ email: email }, (error, response) => {
         if(response !== null) {
         if (bcrypt.compareSync(req.params.password, response.password)) {
-            return res.json({
+            return res.send({
+                success: true,
                 email: response.email,
                 role: response.role
             });
         }
+        else {
+            return res.send({
+                success: false,
+                error: error
+            });
+        }
     }
-        return res.json(error);
+    else {
+         return res.send({
+            success: false,
+            error:error}
+        );
+    }
     });
 }
 

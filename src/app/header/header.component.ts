@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('role');
     this.router.navigate(['/welcome']);
     if (this.service.socialLogin) {
+      console.log('Inside social login');
       this.service.socialLogin = false;
       this.authService.signOut().then(res => console.log(res));
     }
