@@ -18,7 +18,6 @@ export class AdminComponent implements OnInit {
   insertMovie(id, name, image, desc, genre, yor) {
     console.log(id, name, image , desc);
     this.service.insertMovies(id, name, image, desc, genre, yor).subscribe(res => {
-      console.log(res);
       if (JSON.parse(res.text()).success !== false) {
         alert('Movie Inserted Successfully');
       } else {

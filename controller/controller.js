@@ -75,7 +75,7 @@ exports.insertMovie = (req,res) => {
         }
         return res.json({
             success: true,
-            // body: response
+            body: response
         });
     });
 }   

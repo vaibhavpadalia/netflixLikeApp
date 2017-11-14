@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(email: string, password: string) {
     this.service.onLogin(email, password)
       .subscribe(res => {
-        this.user = res;
+        this.user = JSON.parse(res.text());
         console.log(this.user); // For testing purpose only
         if (this.user !== null) {
           this.router.navigate(['/dashboard']);

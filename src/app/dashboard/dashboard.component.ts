@@ -12,5 +12,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
      this.role = parseInt(localStorage.getItem('role'), 10);
   }
-
 }
