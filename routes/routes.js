@@ -43,12 +43,8 @@ router.route('/v1/deleteMovie/:name')
     .delete(controller.deleteMovie);
 
 router.route('/v1/deleteSeries/:name')
-    .delete(controller.deleteSeries);
-
-router.route('/v1/deleteSeason/:name')
-    .delete(controller.deleteSeason);
-
-router.route('/v1/deleteEpisode/:name')
+    .delete(controller.deleteSeries)
+    .delete(controller.deleteSeason)
     .delete(controller.deleteEpisode);
 
 router.route('/v1/updateMovie/:id')

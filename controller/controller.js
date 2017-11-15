@@ -205,23 +205,23 @@ exports.deleteMovie = (req,res) => {
     });
 }
 
-exports.deleteSeries = (req, res) => {
+exports.deleteSeries = (req, res,next) => {
     console.log('del ser');
     Series.remove({ name: req.params.name }, (error, response) => {
         if (error) {
             return res.json(req, res, error);
         }
-        res.json(response);
+        next();
     });
 }
 
-exports.deleteSeason = (req, res) => {
+exports.deleteSeason = (req, res, next) => {
     console.log('del season');
     Season.remove({ name: req.params.name }, (error, response) => {
         if (error) {
             return res.json(req, res, error);
         }
-        res.json(response);
+        next();
     });
 }
 
@@ -230,8 +230,10 @@ exports.deleteEpisode = (req, res) => {
     Episode.remove({ name: req.params.name }, (error, response) => {
         if (error) {
             return res.json(req, res, error);
+        } 
+        else {
+          res.json(response);
         }
-        res.json(response);
     });
 }
 
