@@ -18,11 +18,11 @@ import { AnonymousGuard } from './anonymous.guard';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('999152044436-ru46es165cg49nj3b5q1c35km6mu101o.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('Not to be shared')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('190259691532770')
+    provider: new FacebookLoginProvider('Not to be shared')
   }
 ]);
 export function provideConfig() {
