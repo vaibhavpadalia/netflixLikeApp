@@ -1,27 +1,52 @@
 # Netflix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+This is an example of a Netflix-like app made using MEAN Stack.
+Packages used:-
 
-## Development server
+##Bcrypt
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Used bcrypt for password encryption.
+Look here for more info: https://www.npmjs.com/package/bcrypt
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##Nodemailer
 
-## Build
+Used to send email to users while creating their accounts.
+Look here for more info: https://nodemailer.com/about/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+##Bootstrap
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Used for designing HTML pages.
+Look here for more info: https://www.npmjs.com/package/bootstrap
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+##Multer
 
-## Further help
+Used for image upload.
+Look here for more info: https://www.npmjs.com/package/multer
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+##JWT
+
+Used for creating tokens.
+Look here for more info: https://www.npmjs.com/package/jsonwebtoken
+
+
+##Express JWT
+
+Used for validating API calls with tokens.
+Look here for more info: https://www.npmjs.com/package/express-jwt
+
+
+##CORS
+
+Used for allowing cross origin resource sharing.
+Look here for more info: https://www.npmjs.com/package/cors
+
+
+##Angular4-Social-Login
+
+Used for integrating facebook and google login.
+Look here for more info: https://www.npmjs.com/package/angular4-social-login
+
