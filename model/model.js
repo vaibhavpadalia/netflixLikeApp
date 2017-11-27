@@ -7,6 +7,7 @@ var UserSchema = new Schema({
     name: { type: String, trim: true},
     password: { type: String },
     role: { type: Number },
+    profileImage: { type: String },
     created_at: { type: Date, default: Date.now() },
     updated_at: { type: Date }
 });

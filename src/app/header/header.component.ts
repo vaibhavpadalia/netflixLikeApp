@@ -17,11 +17,12 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem('email');
     localStorage.removeItem('role');
+    localStorage.removeItem('token');
     this.router.navigate(['/welcome']);
     if (this.service.socialLogin) {
       console.log('Inside social login');
       this.service.socialLogin = false;
-      this.authService.signOut().then(res => console.log(res));
+      this.authService.signOut();
     }
   }
 }

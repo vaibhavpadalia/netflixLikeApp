@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <h2 style="margin: 80px 0 30px 0 ;text-align: center">Your Profile</h2>
+    <div style="margin:20px 0 50px 250px;" class="col-md-7 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>User Profile</h4>
+        </div>
+        <div class="panel-body">
+          <div class="box box-info">
+            <div class="box-body">
+              <div class="col-sm-6">
+                <div align="center">
+                  <img alt="User Pic" src="assets/images/{{user.profileImage}}"
+                    id="profile-image1" class="img-circle img-responsive"><br>
+                  <input type="file" style="text-align:center;color:#999; margin:20px 0 0 50px;"
+                  id="imageField" #imageField name="imageField" 
+                  (change)="uploadImage()"><br>
+
+
+                </div>
+                <br>
+                
+              </div>
+              <div class="col-sm-6">
+                <h4 style="color:#00b1b1;">{{user.name}}</h4>
+              </div>
+              <div class="clearfix"></div>
+              <hr style="margin:5px 0 5px 0;">
+              <div class="col-sm-5 col-xs-6 tital ">Full Name:</div>
+              <div class="col-sm-7 col-xs-6 ">{{user.name}}</div>
+              <div class="clearfix"></div>
+              <div class="bot-border"></div>
+
+              <div class="col-sm-5 col-xs-6 tital ">Email:</div>
+              <div class="col-sm-7"> {{user.email}}</div>
+              <div class="clearfix"></div>
+              <div class="bot-border"></div>
+
+              <div class="col-sm-5 col-xs-6 tital ">Role:</div>
+              <div class="col-sm-7"> {{user.role}}</div>
+              <div class="clearfix"></div>
+              <div class="bot-border"></div>
+
+              <div class="col-sm-5 col-xs-6 tital ">Date Of Creation:</div>
+              <div class="col-sm-7">{{user.created_at}}</div>
+
+              <div class="clearfix"></div>
+              <div class="bot-border"></div>
+
+              <div class="col-sm-5 col-xs-6 tital ">Password:</div>
+              <div class="col-sm-7"><a [routerLink]="['/changePassword']">Change Password</a></div>
+              
+              <div class="clearfix"></div>
+              <div class="bot-border"></div>
+
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

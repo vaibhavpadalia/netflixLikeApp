@@ -6,15 +6,41 @@ var Movie = mongoose.model('movieData');
 var Episode = mongoose.model('episodeData');
 const bcrypt = require('bcrypt');
 var nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+var multer = require('multer');
 
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'vaibhavpadalia1996@gmail.com',
-        pass: 'P@$sw0rdanon'
+        pass: 'Your Password'
     }
 });
+
+
+exports.uploadImage = (req, res) => {
+    var path;
+    var storage = multer.diskStorage({
+        destination: function (req, res, next) {
+            next(null, 'src/assets/images');
+        },
+        filename: function (req, file, next) {
+            next(null, req.params.email + '.jpg');
+        }
+    });
+    var upload = multer({ storage: storage }).any('imageField'); 
+    upload(req, res, error=> {
+        console.log(req.files[0].path);
+        if(error) {
+            return res.json(error);
+        }
+        res.json({
+            message: 'Uploaded !!',
+            path: req.params.email + '.jpg'
+        })
+    }) 
+}
 
 exports.createUser = (req, res) => {
     console.log('Inside create user');  // For testing purpose only
@@ -23,6 +49,7 @@ exports.createUser = (req, res) => {
         email: req.body.email,
         name: req.body.name,
         password: hash,
+        profileImage: req.body.email + '.jpg',
         role: 1,
         created_at: new Date(),
         updated_at: ""
@@ -37,7 +64,7 @@ exports.createUser = (req, res) => {
         else {
             transporter.sendMail({from:'vaibhavpadalia1996@gmail.com',
                 to: req.body.email,
-                subject: 'Your Password.',
+                subject: 'MeriFlix Password.',
                 text: 'Thankyou for signing up with us. Your password is: ' + req.body.password}, 
                 (error, info) => {
                 if (error) {
@@ -243,10 +270,14 @@ exports.getUser = (req, res) => {
     User.findOne({ email: email }, (error, response) => {
         if(response !== null) {
         if (bcrypt.compareSync(req.params.password, response.password)) {
-            return res.send({
-                success: true,
+            var token = jwt.sign({
                 email: response.email,
                 role: response.role
+            }, 'ThisIsSomethingThatIMustHideFromOthers',
+                );
+            return res.send({
+                success: true,
+                token: token,
             });
         }
         else {
@@ -259,9 +290,45 @@ exports.getUser = (req, res) => {
     else {
          return res.send({
             success: false,
-            error:error}
-        );
+            error:error
+        });
     }
+    });
+}
+
+
+exports.getSocialUser = (req, res) => {
+    var email = req.params.email;
+    User.findOne({ email: email }, (error, response) => {
+        if (response !== null) {
+                var token = jwt.sign({
+                    email: response.email,
+                    role: response.role
+                }, 'ThisIsSomethingThatIMustHideFromOthers',
+                );
+                return res.send({
+                    success: true,
+                    token: token,
+                });
+            }
+        else {
+                res.send({
+                    success: false,
+                    error: error
+                });
+            }
+        });
+    }
+
+
+exports.getUserData = (req, res) => {
+    var email = req.params.email;
+    User.findOne({email: email}, (error, response) =>{
+        if(error) { 
+            return res.json(error);
+        } else { 
+            res.json(response);
+        }
     });
 }
 
@@ -313,7 +380,6 @@ exports.updateMovie = (req, res) => {
                 success: true
             });
         });
-
     });
 }
 
@@ -342,7 +408,18 @@ exports.updateSeries = (req, res) => {
             }
             res.json(response);
         });
+    });
+}
 
+exports.search = (req,res) => {
+    let search = req.params.search;
+    var sol = [];
+    Movie.find({ $or: [{ name: new RegExp(search, 'i') }, { genre: new RegExp(search, 'i')}] }, (error,result) => {
+        Series.find({ $or: [{ name: new RegExp(search, 'i') }, { genre: new RegExp(search, 'i') }] },(error, answer)=>{
+            sol.push(result);
+            sol.push(answer);
+            res.json(sol);
+        });
     });
 }
 

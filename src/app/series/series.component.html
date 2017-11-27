@@ -1,9 +1,16 @@
 <link href="https://fonts.googleapis.com/css?family=Exo+2:600" rel="stylesheet">
 <body>
+  <br>
+
+<p class="s" style="margin: 10px 0 20px 1000px;">
+  <input [(ngModel)]="searchText" id="search" type="search" />
+  <br>
+</p>
+
 <br>
 <div class="container" *ngFor="let g of genre">
   <h1 style="padding-left:30px;padding-top:20px;font-family: 'Exo 2', sans-serif;font-size:50px;">{{g}}</h1>
-  <ng-container *ngFor="let s of series">
+  <ng-container *ngFor="let s of series | search:searchText">
   <div class="cellphone-container" *ngIf="g === s.genre">
     <div class="movie">
       <img class="movie-img" src="{{s.imgSrc}}">

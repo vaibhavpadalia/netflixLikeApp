@@ -6,6 +6,9 @@ var controller = require('../controller/controller');
 router.route('/v1/createUser')
     .post(controller.createUser);
 
+router.route('/v1/upload/:email')
+    .post(controller.uploadImage);
+
 router.route('/v1/insertMovie')
     .post(controller.insertMovie);
 
@@ -33,11 +36,20 @@ router.route('/v1/getAllEpisodes/:name/:number')
 router.route('/v1/getUser/:email/:password')
     .get(controller.getUser);
 
+router.route('/v1/getSocialUser/:email')
+    .get(controller.getSocialUser);
+
+router.route('/v1/getUserData/:email')
+    .get(controller.getUserData);
+
 router.route('/v1/getMovie/:name')
     .get(controller.getMovie);
 
 router.route('/v1/getSeries/:name')
     .get(controller.getSeries);
+
+router.route('/v1/find/:search')
+    .get(controller.search);
 
 router.route('/v1/deleteMovie/:name')
     .delete(controller.deleteMovie);

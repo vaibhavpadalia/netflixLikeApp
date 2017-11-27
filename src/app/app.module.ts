@@ -8,21 +8,21 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
-import { AdminComponent } from './admin/admin.component';
 import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 import { AuthServiceConfig } from 'angular4-social-login';
 import { AdminGuard } from './admin.guard';
-
+import { SearchPipe } from './search.pipe';
+import { AnonymousGuard } from './anonymous.guard';
 
 
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('999152044436-ru46es165cg49nj3b5q1c35km6mu101o.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('Google API key')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('190259691532770')
+    provider: new FacebookLoginProvider('Facebook Api Key')
   }
 ]);
 export function provideConfig() {
@@ -36,7 +36,7 @@ export function provideConfig() {
     HeaderComponent,
     FooterComponent,
     routingComponents,
-    AdminComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ export function provideConfig() {
     HttpModule,
     SocialLoginModule
   ],
-  providers: [UserService, AuthGuard, AdminGuard, [{
+  providers: [UserService, AuthGuard, AdminGuard, AnonymousGuard, [{
     provide: AuthServiceConfig,
     useFactory: provideConfig
   }]],

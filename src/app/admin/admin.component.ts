@@ -72,8 +72,8 @@ export class AdminComponent implements OnInit {
   deleteSeries(name) {
     console.log(name);
     this.service.deleteSeries(name).subscribe(res => {
-      console.log(res);
-      if (JSON.parse(res.text()).success !== false) {
+      console.log(JSON.parse(res.text()).n);
+      if (JSON.parse(res.text()).n > 0) {
         alert('Series Deleted Successfully');
       } else {
         alert('Deletion failed.');
